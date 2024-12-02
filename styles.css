@@ -13,38 +13,50 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Style général pour les éléments de navigation */
-nav {
-    margin-top: 2em;
-}
-
 .menu-nav {
     list-style-type: none;
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 3em;
-    flex-wrap: wrap; /* Pour éviter les débordements */
+    gap: 2em; /* Réduction de l'espace entre les boutons */
+    flex-wrap: wrap; /* Permet de passer en plusieurs lignes si nécessaire */
 }
 
 .menu-button {
     text-decoration: none;
     background-color: #c67a5a;
     color: white;
-    padding: 1em 2em;
+    padding: 0.8em 1.5em; /* Ajustement du padding pour mobile */
     border-radius: 50px;
-    font-size: 1.1em;
+    font-size: 1em; /* Réduction de la taille pour éviter les débordements */
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    white-space: nowrap; /* Empêche le texte de se couper sur plusieurs lignes */
 }
 
 .menu-button:hover {
     background-color: #9a4d30;
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsivité des boutons */
+@media (max-width: 768px) {
+    .menu-nav {
+        flex-direction: column; /* Les boutons passent en colonne sur mobile */
+        align-items: center;
+        gap: 1em; /* Réduction de l'espace entre eux */
+    }
+
+    .menu-button {
+        padding: 0.6em 1em; /* Réduction du padding pour s'adapter aux petits écrans */
+        font-size: 0.9em; /* Réduction de la taille de la police */
+        width: 80%; /* Largeur ajustable pour mieux s'adapter */
+        text-align: center;
+    }
 }
 
 /* Titre principal */
