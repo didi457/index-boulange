@@ -23,8 +23,8 @@ nav {
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 2em; /* Espacement entre les boutons */
-    flex-wrap: wrap;
+    gap: 2em; /* Moins d'espace entre les boutons */
+    flex-wrap: wrap; /* Permet aux boutons de passer à une nouvelle ligne si nécessaire */
 }
 
 .menu-button {
@@ -37,20 +37,20 @@ nav {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Ombre douce et élégante */
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    white-space: nowrap;
+    white-space: nowrap; /* Empêche le texte de se couper */
 }
 
 .menu-button:hover {
     background-color: #9a4d30;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px); /* Légère élévation au survol */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Ombre plus forte */
 }
 
 .menu-button:active {
     background-color: #7b3f26;
-    transform: translateY(2px);
+    transform: translateY(2px); /* Réduction du décalage au clic */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
@@ -87,7 +87,7 @@ header {
 }
 
 #hero h2 {
-    font-size: 3em;
+    font-size: 3em; /* Taille ajustée pour la responsivité */
     font-weight: 600;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     letter-spacing: 1px;
@@ -120,13 +120,12 @@ header {
     animation: fadeInUp 1s ease-out forwards;
 }
 
-/* Grilles d'images et espacement amélioré */
+/* Grilles d'images et de menu */
 .menu-grid, .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajustement flexible */
-    gap: 2em; /* Espacement homogène entre les images */
-    justify-items: center; /* Centrage horizontal des éléments */
-    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
 }
 
 .menu-item, .gallery-grid img, .about-images img {
@@ -135,9 +134,10 @@ header {
     height: 300px;
     object-fit: cover;
     border-radius: 15px;
-    margin: 0; /* Suppression des marges inutiles */
+    margin: 1em;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s;
+    opacity: 0; /* Initialement invisible pour l'animation */
 }
 
 /* Animation de chargement des images */
@@ -161,7 +161,7 @@ header {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Section Horaires alignée */
+/* Section Horaires */
 #hours {
     background-color: #f7f5f2;
     padding: 3em 1em;
@@ -170,10 +170,10 @@ header {
 }
 
 .hours-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colonnes flexibles */
-    gap: 2em; /* Espacement entre les bulles */
-    justify-items: center; /* Centrage horizontal */
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    flex-wrap: wrap;
 }
 
 .hours-item {
@@ -213,15 +213,15 @@ footer a:hover {
 /* Responsivité */
 @media (max-width: 768px) {
     .menu-nav {
-        flex-direction: column;
+        flex-direction: column; /* Les boutons passent en colonne sur mobile */
         align-items: center;
-        gap: 1em;
+        gap: 1em; /* Réduction de l'espace entre eux */
     }
 
     .menu-button {
         padding: 0.6em 1em;
         font-size: 1em;
-        width: 90%;
+        width: 90%; /* Largeur adaptée pour mobile */
     }
 
     #hero h2 {
@@ -237,8 +237,13 @@ footer a:hover {
         padding: 2em 0.5em;
     }
 
-    .gallery-grid, .hours-grid {
-        gap: 1.5em; /* Réduction des écarts sur petit écran */
+    .menu-grid, .gallery-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-item, .gallery-grid img {
+        max-width: 90%;
     }
 
     footer {
