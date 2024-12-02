@@ -1,13 +1,3 @@
-/* Root Variables for Theming */
-:root {
-    --primary-color: #c67a5a;
-    --secondary-color: #a15d4c;
-    --background-color: #f1e7d6;
-    --text-color: #333;
-    --highlight-color: #fff;
-    --hover-color: #9a4d30;
-}
-
 /* Base Styles */
 * {
     box-sizing: border-box;
@@ -17,10 +7,13 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    color: var(--text-color);
-    background-color: var(--background-color);
+    color: #333;
+    background-color: #f1e7d6;
     line-height: 1.6;
     letter-spacing: 0.5px;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 /* Navigation */
@@ -34,7 +27,7 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1em;
+    gap: 1.5em;
 }
 
 .menu-button {
@@ -53,28 +46,23 @@ nav {
 
 .menu-button:hover {
     background-color: #9a4d30;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
 }
-
-.menu-button:active {
-    background-color: #7b3f26;
-    transform: translateY(2px);
-}
-
 
 /* Titles */
 h1, h2 {
-    color: var(--primary-color);
+    color: #c67a5a;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 1em;
+    margin: 1em auto;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 /* Header Section */
 header {
-    background-color: var(--secondary-color);
-    color: var(--highlight-color);
+    background-color: #a15d4c;
+    color: white;
     padding: 2em 1em;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     text-align: center;
@@ -82,77 +70,90 @@ header {
 
 /* Hero Section */
 #hero {
-    padding: 5vh 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5vh 2vw;
     background-image: url('coffee_book_glasses_1600x900.jpg');
     background-size: cover;
     background-position: center;
-    text-align: center;
     color: #000;
     position: relative;
+    border-bottom: 4px solid #c67a5a;
 }
 
 #hero h2 {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 600;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .cta-button {
     margin-top: 1.5em;
-    padding: 0.8em 1.5em;
-    background-color: var(--highlight-color);
-    color: var(--primary-color);
+    padding: clamp(0.8em, 2vw, 1em) clamp(1.5em, 4vw, 2em);
+    background-color: white;
+    color: #c67a5a;
     border-radius: 5px;
     font-weight: bold;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    min-width: 120px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
 }
 
 .cta-button:hover {
-    background-color: var(--background-color);
     transform: scale(1.1);
+    background-color: #f7f5f2;
 }
 
-/* Section Styles */
+/* Section General */
 .section {
-    padding: 4em 1em;
+    padding: 4em 2em;
     text-align: center;
 }
 
-/* Grid System */
-.menu-grid, .gallery-grid, .hours-grid {
+/* Image Grid */
+.menu-grid, .gallery-grid {
     display: grid;
-    gap: 1.5em;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: start;
 }
 
-.menu-item, .gallery-grid img, .hours-item {
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+.menu-item, .gallery-grid img, .about-images img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.menu-item:hover, .gallery-grid img:hover, .hours-item:hover {
+/* Hover Effect */
+.menu-item:hover, .about-images img:hover, .gallery-grid img:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* Hours Section */
 #hours {
-    background-color: var(--background-color);
-    padding: 3em 1em;
+    background-color: #f7f5f2;
+    padding: 3em 2em;
     text-align: center;
-    border-top: 3px solid var(--primary-color);
+    border-top: 3px solid #c67a5a;
+}
+
+.hours-grid {
+    display: grid;
+    gap: 2em;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .hours-item {
-    background-color: var(--highlight-color);
-    padding: 1.5em;
+    background-color: white;
     border-radius: 10px;
+    padding: 1.5em;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 320px;
-    margin: auto;
-    text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -161,76 +162,38 @@ header {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Footer Section */
+/* Footer */
 footer {
     text-align: center;
     padding: 2em;
-    background-color: var(--primary-color);
-    color: var(--highlight-color);
+    background-color: #c67a5a;
+    color: white;
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 }
 
 footer a {
-    color: var(--highlight-color);
+    color: white;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 footer a:hover {
-    color: var(--background-color);
+    color: #f7f5f2;
 }
 
-/* Responsive Styles */
+/* Responsive Design */
 @media (max-width: 768px) {
-    /* Mobile Styles */
-    body {
-        font-size: 0.9rem;
-    }
-
-    nav {
-        margin-top: 1em;
-    }
-    
-    .menu-nav {
-        flex-direction: column;
-    }
-
-    .menu-button {
-        padding: 0.7em 1em;
-        font-size: 0.9rem;
-    }
-
     #hero h2 {
         font-size: 2rem;
     }
 
-    .cta-button {
-        padding: 0.6em 1em;
-        font-size: 0.85rem;
-    }
-    
-    .menu-item, .gallery-grid img, .hours-item {
-        max-width: 100%;
-    }
-
-    .section {
-        padding: 2em 1em;
-    }
-}
-
-@media (min-width: 1024px) {
-    /* Desktop Styles */
     .menu-button {
-        padding: 1em 2em;
-        font-size: 1.2rem;
+        font-size: 0.9rem;
+        padding: 0.7em 1.2em;
     }
 
-    .cta-button {
-        padding: 1em 2em;
-        font-size: 1.1rem;
-    }
-
-    #hero h2 {
-        font-size: 4rem;
+    .gallery-grid, .menu-grid {
+        grid-template-columns: 1fr;
     }
 }
+
