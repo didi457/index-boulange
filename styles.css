@@ -47,6 +47,7 @@ nav {
     font-weight: bold;
     text-transform: uppercase;
     transition: all 0.3s ease;
+    min-width: 150px;
 }
 
 .menu-button:hover,
@@ -74,7 +75,7 @@ header {
 
 /* Hero Section */
 #hero {
-    padding: 4em 1em;
+    padding: 5vh 1em;
     background-image: url('coffee_book_glasses_1600x900.jpg');
     background-size: cover;
     background-position: center;
@@ -96,7 +97,9 @@ header {
     color: var(--primary-color);
     border-radius: 5px;
     font-weight: bold;
+    font-size: 1rem;
     transition: all 0.3s ease;
+    min-width: 120px;
 }
 
 .cta-button:hover {
@@ -170,20 +173,13 @@ footer a:hover {
     color: var(--background-color);
 }
 
-/* Animations */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* Responsive Styles */
 @media (max-width: 768px) {
+    /* Mobile Styles */
+    body {
+        font-size: 0.9rem;
+    }
+
     nav {
         margin-top: 1em;
     }
@@ -191,8 +187,43 @@ footer a:hover {
     .menu-nav {
         flex-direction: column;
     }
+
+    .menu-button {
+        padding: 0.7em 1em;
+        font-size: 0.9rem;
+    }
+
+    #hero h2 {
+        font-size: 2rem;
+    }
+
+    .cta-button {
+        padding: 0.6em 1em;
+        font-size: 0.85rem;
+    }
     
-    h1, h2 {
-        font-size: 1.5rem;
+    .menu-item, .gallery-grid img, .hours-item {
+        max-width: 100%;
+    }
+
+    .section {
+        padding: 2em 1em;
+    }
+}
+
+@media (min-width: 1024px) {
+    /* Desktop Styles */
+    .menu-button {
+        padding: 1em 2em;
+        font-size: 1.2rem;
+    }
+
+    .cta-button {
+        padding: 1em 2em;
+        font-size: 1.1rem;
+    }
+
+    #hero h2 {
+        font-size: 4rem;
     }
 }
