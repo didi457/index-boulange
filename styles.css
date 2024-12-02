@@ -13,45 +13,56 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Style général pour les éléments de navigation */
-nav {
-    margin-top: 2em;
-}
-
 .menu-nav {
     list-style-type: none;
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 2em; /* Moins d'espace entre les boutons */
-    flex-wrap: wrap; /* Permet aux boutons de passer à une nouvelle ligne si nécessaire */
+    gap: 2em; /* Réduction de l'espace entre les boutons */
+    flex-wrap: wrap; /* Permet de passer en plusieurs lignes si nécessaire */
 }
 
 .menu-button {
     text-decoration: none;
     background-color: #c67a5a;
     color: white;
-    padding: 0.8em 2em;
+    padding: 0.8em 1.5em; /* Ajustement du padding pour mobile */
     border-radius: 50px;
-    font-size: 1.1em;
+    font-size: 1em; /* Réduction de la taille pour éviter les débordements */
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Ombre douce et élégante */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    white-space: nowrap; /* Empêche le texte de se couper */
+    white-space: nowrap; /* Empêche le texte de se couper sur plusieurs lignes */
 }
 
 .menu-button:hover {
     background-color: #9a4d30;
-    transform: translateY(-3px); /* Légère élévation au survol */
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Ombre plus forte */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+
+/* Responsivité des boutons */
+@media (max-width: 768px) {
+    .menu-nav {
+        flex-direction: column; /* Les boutons passent en colonne sur mobile */
+        align-items: center;
+        gap: 1em; /* Réduction de l'espace entre eux */
+    }
+
+    .menu-button {
+        padding: 0.6em 1em; /* Réduction du padding pour s'adapter aux petits écrans */
+        font-size: 0.9em; /* Réduction de la taille de la police */
+        width: 80%; /* Largeur ajustable pour mieux s'adapter */
+        text-align: center;
+    }
+}
+
 
 .menu-button:active {
     background-color: #7b3f26;
-    transform: translateY(2px); /* Réduction du décalage au clic */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(2px);
 }
 
 /* Titre principal */
@@ -87,7 +98,7 @@ header {
 }
 
 #hero h2 {
-    font-size: 3em; /* Taille ajustée pour la responsivité */
+    font-size: 3.5em;
     font-weight: 600;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     letter-spacing: 1px;
@@ -136,29 +147,18 @@ header {
     border-radius: 15px;
     margin: 1em;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s;
-    opacity: 0; /* Initialement invisible pour l'animation */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Animation de chargement des images */
-.menu-item img, .gallery-grid img {
-    animation: fadeIn 1s ease-in forwards;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
+/* Effet au survol des images */
 .menu-item:hover, .about-images img:hover, .gallery-grid img:hover {
     transform: scale(1.1);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-grid img {
+    width: 100%;
+    max-width: 400px;
 }
 
 /* Section Horaires */
@@ -208,45 +208,4 @@ footer a {
 
 footer a:hover {
     color: #f7f5f2;
-}
-
-/* Responsivité */
-@media (max-width: 768px) {
-    .menu-nav {
-        flex-direction: column; /* Les boutons passent en colonne sur mobile */
-        align-items: center;
-        gap: 1em; /* Réduction de l'espace entre eux */
-    }
-
-    .menu-button {
-        padding: 0.6em 1em;
-        font-size: 1em;
-        width: 90%; /* Largeur adaptée pour mobile */
-    }
-
-    #hero h2 {
-        font-size: 2.5em;
-    }
-
-    .cta-button {
-        font-size: 0.9em;
-        padding: 0.8em 1.5em;
-    }
-
-    .section {
-        padding: 2em 0.5em;
-    }
-
-    .menu-grid, .gallery-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .menu-item, .gallery-grid img {
-        max-width: 90%;
-    }
-
-    footer {
-        font-size: 0.9em;
-    }
 }
