@@ -24,6 +24,7 @@ nav {
     display: flex;
     justify-content: center;
     gap: 3em;
+    flex-wrap: wrap; /* Pour éviter les débordements */
 }
 
 .menu-button {
@@ -44,11 +45,6 @@ nav {
     background-color: #9a4d30;
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.menu-button:active {
-    background-color: #7b3f26;
-    transform: translateY(2px);
 }
 
 /* Titre principal */
@@ -84,7 +80,7 @@ header {
 }
 
 #hero h2 {
-    font-size: 3.5em;
+    font-size: 2em;
     font-weight: 600;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     letter-spacing: 1px;
@@ -102,19 +98,10 @@ header {
     transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
 }
 
-.cta-button:hover {
-    transform: scale(1.1);
-    background-color: #f7f5f2;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
 /* Section générale */
 .section {
-    padding: 4em 1em;
+    padding: 2em 1em;
     text-align: center;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease-out forwards;
 }
 
 /* Grilles d'images et de menu */
@@ -122,29 +109,16 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2em;
+    gap: 1em;
 }
 
 .menu-item, .gallery-grid img, .about-images img {
     width: 100%;
-    max-width: 400px;
-    height: 300px;
+    max-width: 300px;
+    height: auto; /* Adapter les proportions */
     object-fit: cover;
     border-radius: 15px;
-    margin: 1em;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-/* Effet au survol des images */
-.menu-item:hover, .about-images img:hover, .gallery-grid img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-}
-
-.gallery-grid img {
-    width: 100%;
-    max-width: 400px;
+    margin: 1em 0;
 }
 
 /* Section Horaires */
@@ -157,9 +131,9 @@ header {
 
 .hours-grid {
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Une colonne pour mobile */
+    align-items: center;
     gap: 2em;
-    flex-wrap: wrap;
 }
 
 .hours-item {
@@ -169,12 +143,6 @@ header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 320px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hours-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 /* Footer */
@@ -186,12 +154,41 @@ footer {
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 }
 
-footer a {
-    color: white;
-    font-weight: bold;
-    transition: color 0.3s ease;
+/* Responsivité */
+@media (max-width: 768px) {
+    nav {
+        margin-top: 1em;
+    }
+
+    .menu-nav {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    #hero h2 {
+        font-size: 2.5em;
+    }
+
+    .cta-button {
+        font-size: 1em;
+        padding: 0.8em 1.5em;
+    }
+
+    .section {
+        padding: 2em 0.5em;
+    }
+
+    .menu-grid, .gallery-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-item, .gallery-grid img {
+        max-width: 90%; /* Réduire la largeur pour mobile */
+    }
+
+    footer {
+        font-size: 0.9em;
+    }
 }
 
-footer a:hover {
-    color: #f7f5f2;
-}
